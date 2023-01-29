@@ -10,7 +10,8 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'public'),
     },
-    port: 8080
+    port: 8080,
+    open: true
   },
   plugins: [new HtmlWebpackPlugin({
     template: 'public/index.html'
