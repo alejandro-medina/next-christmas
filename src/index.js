@@ -1,5 +1,6 @@
 import css from "./css/main.css";
+import appView from "./views/app.html";
 
-let today = new Date().getTime();
+const rootElement = document.getElementById("root");
+rootElement.innerHTML = appView;
 
-console.log(today);
