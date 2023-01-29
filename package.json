@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",

@@ -1,10 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const path = require('path');
 
 module.exports = {
   entry: "./src/index.js",
   output: {
-    filename: "main.js",
+    filename: "[name].[contenthash].js",
+    path: path.resolve(__dirname, "dist"),
   },
   devServer: {
     static: {
@@ -13,9 +16,12 @@ module.exports = {
     port: 8080,
     open: true
   },
-  plugins: [new HtmlWebpackPlugin({
-    template: 'public/index.html'
-  })],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'public/index.html'
+    })
+  ],
   module: {
     rules: [
       {
