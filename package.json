@@ -13,6 +13,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "css-loader": "^6.7.3",
+    "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.1",
     "postcss": "^8.4.21",
