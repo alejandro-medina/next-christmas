@@ -56,6 +56,9 @@ const update = function () {
 }
 
 const startCountdown = function () {
+
+  if (intervalId) clearInterval(intervalId);
+
   intervalId = setInterval(function () {
     update();
   }, 1000)
