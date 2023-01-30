@@ -55,10 +55,21 @@ const update = function () {
   }
 }
 
-window.addEventListener('DOMContentLoaded', function () {
-  update();
+const startCountdown = function () {
   intervalId = setInterval(function () {
     update();
   }, 1000)
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  update();
+  startCountdown();
 });
 
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden' && intervalId) {
+    clearInterval(intervalId);
+  } else if (document.visibilityState === 'visible') {
+    startCountdown();
+  }
+});
