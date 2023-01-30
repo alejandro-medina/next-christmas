@@ -4,12 +4,15 @@ const CHRISTMAS = {
   year: 2023,
 };
 
+let intervalId = null;
+let timeLeft;
+
+const christmas = new Date(CHRISTMAS.year, CHRISTMAS.month - 1, CHRISTMAS.day);
+
 const calculateTimeLeft = function () {
 
   const today = new Date();
-  const christmas = new Date(CHRISTMAS.year, CHRISTMAS.month - 1, CHRISTMAS.day);
   const timeLeft = christmas.getTime() - today.getTime();
-
 
   const seconds = Math.floor((timeLeft / 1000) % 60);
   const minutes = Math.floor((timeLeft / 1000 / 60) % 60);
@@ -20,7 +23,8 @@ const calculateTimeLeft = function () {
     days,
     hours,
     minutes,
-    seconds
+    seconds,
+    totalInSeconds: Math.floor(timeLeft / 1000),
   }
 };
 
@@ -36,9 +40,25 @@ const updateDOM = function ({ days, hours, minutes, seconds }) {
   secondsEl.textContent = seconds;
 };
 
+const update = function () {
+  timeLeft = calculateTimeLeft();
+
+  /**
+   * Validate that time is > 0 in order
+   * to not to show negative numbers
+   */
+  if (timeLeft.totalInSeconds >= 0) {
+    updateDOM(timeLeft);
+    if (timeLeft.totalInSeconds == 0) {
+      clearInterval(intervalId);
+    }
+  }
+}
+
 window.addEventListener('DOMContentLoaded', function () {
-  const timeLeft = calculateTimeLeft();
-  console.log(timeLeft.days);
-  updateDOM(timeLeft);
+  update();
+  intervalId = setInterval(function () {
+    update();
+  }, 1000)
 });
 
