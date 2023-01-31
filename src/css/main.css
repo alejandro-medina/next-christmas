@@ -6,3 +6,7 @@ body {
   background-color: #e74c3c;
   color: white;
 }
+
+#embedim--snow {
+  opacity: .8;
+}
