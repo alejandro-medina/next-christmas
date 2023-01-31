@@ -1,13 +1,18 @@
 # Next Christmas App
 
-A countdown to the next christmas eve
+A countdown to the next christmas night
 
 ---
 
-I built this app just to play around webpack as my first fully self configured project with javascript
+## Installation
 
+Requires ```Node >= 18```
 
-I am testing webpack agains other bundlers
+```
+git clone https://github.com/alejandro-medina/next-christmas.git
 
+cd next-christmas
 
-Clone the repo and hava fun with webpack config file! :D 
+npm install && npm run dev
+```
+
