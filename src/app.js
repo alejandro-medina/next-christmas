@@ -9,6 +9,10 @@ let timeLeft;
 
 const christmas = new Date(CHRISTMAS.year, CHRISTMAS.month - 1, CHRISTMAS.day);
 
+const addLeadingZeroIfNeeded = function (number) {
+  return number < 10 ? `0${number}` : number;
+}
+
 const calculateTimeLeft = function () {
 
   const today = new Date();
@@ -20,10 +24,10 @@ const calculateTimeLeft = function () {
   const days = Math.floor((timeLeft / 1000 / 60 / 60 / 24));
 
   return {
-    days,
-    hours,
-    minutes,
-    seconds,
+    days: addLeadingZeroIfNeeded(days),
+    hours: addLeadingZeroIfNeeded(hours),
+    minutes: addLeadingZeroIfNeeded(minutes),
+    seconds: addLeadingZeroIfNeeded(seconds),
     totalInSeconds: Math.floor(timeLeft / 1000),
   }
 };
