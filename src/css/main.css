@@ -10,3 +10,17 @@ body {
 #embedim--snow {
   opacity: .8;
 }
+
+
+h1, div#counter {
+  background-color: rgba(0, 0, 0, .1);
+  border-radius: 6px;
+}
+
+h1 {
+  padding: .5rem;
+}
+
+div#counter {
+  padding: 2rem;
+}
