@@ -1,7 +1,7 @@
 const CHRISTMAS = {
   day: 25,
   month: 12,
-  year: 2023,
+  year: 2024,
 };
 
 let intervalId = null;
